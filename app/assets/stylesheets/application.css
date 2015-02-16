@@ -11,5 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require colors
+ *= require bootstrap-select
  *= require_self
  */

@@ -5,8 +5,10 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'activescaffold'
-gem 'active_scaffold'
+gem 'bootstrap-generators', '~> 3.3.1'
+gem 'mongoid'
+gem 'bootstrap-select-rails'
+gem 'carrierwave'
 
 gem 'jbuilder', '~> 2.0'
 

@@ -1,0 +1,80 @@
+<%= form_for(@discount, :html => { :class => "form-horizontal", :role => "form" }) do |f| %>
+  <% if @discount.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@discount.errors.count, "error") %> prohibited this discount from being saved:</h4>
+
+      <ul>
+      <% @discount.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :discount, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :discount, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :promo, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.check_box :promo, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :old_price, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+      <%= f.text_field :old_price, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :new_price, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+      <%= f.text_field :new_price, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :image, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :text, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :text, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :color, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+      <%= f.select :color,nil,{}, :class => "form-control"  do %>
+        <%[['желтый','bg-yellow'],['красноватый','bg-lightred','#f3a652'],['зеленоватый','bg-lightgreen'],['зеленый','bg-green'],['красный','bg-red'],['темный','bg-darkred'],['черный','bg-black']].each do |option| -%>
+              <%= content_tag(:option, option.second,class:option.second ) do %>
+                <%="#{option.first}"%>
+              <%end%>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :discount_category_id, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select :discount_category_id, DiscountCategory.all.map{|x| [x.title,x.id] },{}, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
