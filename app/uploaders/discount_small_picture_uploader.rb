@@ -4,7 +4,7 @@ class DiscountSmallPictureUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
-  storage :grid_fs
+  storage :file
 
   version :thumb do
     process :resize_to_limit => [312,160]

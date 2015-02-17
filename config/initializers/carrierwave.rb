@@ -1,5 +1,5 @@
 CarrierWave.configure do |config|
 
-  config.storage = :grid_fs
+  config.storage = :file
 
 end
