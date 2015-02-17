@@ -1,7 +1,5 @@
 CarrierWave.configure do |config|
 
-  config.storage = :grid_fs
+  config.storage = :file
 
-  # Storage access url
-  config.grid_fs_access_url = "/upload/grid"
 end
