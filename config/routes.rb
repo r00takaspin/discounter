@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :discount_categories
 
+  get '/upload/grid/*path' => 'gridfs#serve'
 
   root :to=>'main#index'
 end
