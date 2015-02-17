@@ -11,36 +11,24 @@
     <thead>
       <tr>
             <th>Name</th>
-            <th>Discount</th>
-            <th>Promo</th>
-            <th>Old price</th>
-            <th>New price</th>
             <th>Picture</th>
-            <th>Image</th>
             <th>Text</th>
-            <th>Color</th>
             <th>Discount category</th>
             <th></th>
-        <th></th>
-        <th></th>
+            <th></th>
+            <th></th>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @discounts) do |discount| %>
             <td><%= discount.name %></td>
-            <td><%= discount.discount %></td>
-            <td><%= discount.promo %></td>
-            <td><%= discount.old_price %></td>
-            <td><%= discount.new_price %></td>
-            <td><%= discount.picture %></td>
-            <td><%= discount.image %></td>
+            <td><img src="<%= discount.image_url(:thumb) %>"></td>
             <td><%= discount.text %></td>
-            <td><%= discount.color %></td>
-            <td><%= discount.discount_category_id %></td>
+            <td><%= discount.discount_category ? discount.discount_category.title : '---' %></td>
             <td><%= link_to 'Show', discount %></td>
-        <td><%= link_to 'Edit', edit_discount_path(discount) %></td>
-        <td><%= link_to 'Destroy', discount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_discount_path(discount) %></td>
+            <td><%= link_to 'Destroy', discount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>

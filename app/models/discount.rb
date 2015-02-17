@@ -10,4 +10,8 @@ class Discount
   field :text, type: String
   field :color, type: String
   field :discount_category_id, type: Integer
+
+  belongs_to :discount_category, class_name: 'DiscountCategory'
+
+  mount_uploader :image,DiscountSmallPictureUploader
 end
