@@ -14,10 +14,17 @@ gem 'jbuilder', '~> 2.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'bson_ext'
 gem 'active_model_serializers'
+gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'mina'
+  gem 'mina-unicorn', :require => false
+end
+
+group :production do
+  gem 'unicorn'
 end
 
