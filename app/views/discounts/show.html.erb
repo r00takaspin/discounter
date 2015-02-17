@@ -26,11 +26,14 @@
   <dt>New price:</dt>
   <dd><%= @discount.new_price %></dd>
 
-  <dt>Picture:</dt>
-  <dd><%= @discount.picture %></dd>
+  <dt>Big Image:</dt>
+  <dd><%= image_tag(@discount.big_image_url(:thumb)) %></dd>
 
   <dt>Image:</dt>
-  <dd><%= @discount.image %></dd>
+  <dd><%= image_tag(@discount.image_url(:thumb)) %></dd>
+
+  <dt>Logo:</dt>
+  <dd><%= image_tag(@discount.logo_url(:thumb)) %></dd>
 
   <dt>Text:</dt>
   <dd><%= @discount.text %></dd>
@@ -39,6 +42,6 @@
   <dd><%= @discount.color %></dd>
 
   <dt>Discount category:</dt>
-  <dd><%= @discount.discount_category_id %></dd>
+  <dd><%= @discount.discount_category.title %></dd>
 
 </dl>

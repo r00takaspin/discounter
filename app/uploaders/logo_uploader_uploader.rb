@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class DiscountBigPictureUploader < CarrierWave::Uploader::Base
+class LogoUploaderUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
@@ -9,6 +9,7 @@ class DiscountBigPictureUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_limit => [648,333]
+    process :resize_to_limit => [130,130]
   end
+
 end
