@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'main/index'
 
   namespace :api do
-      get :discountCategories,:to=>'discount#discount_categories'
+      get :discountCategories,:to=>'discount#category_list'
       get :discounts,:to=>'discount#discounts'
+      get 'discountCategories/:id',:to=>'discount#discount_category'
+      get 'discounts/:discount_id',:to=>'discount#find'
   end
 
   resources :discounts

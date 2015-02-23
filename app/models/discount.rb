@@ -1,5 +1,8 @@
 class Discount
   include Mongoid::Document
+  include Mongoid::Timestamps
+  include ActiveModel::Serialization
+
   field :name, type: String
   field :discount, type: String
   field :promo, type: Mongoid::Boolean

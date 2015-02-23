@@ -69,6 +69,11 @@ class DiscountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def discount_params
-      params.require(:discount).permit(:name, :discount, :promo, :old_price, :new_price, :image,:big_image,:logo, :text, :color, :discount_category_id)
+      params.require(:discount).permit(
+          :name, :discount, :promo, :old_price, :new_price, :image,:big_image,:logo, :text, :color, :discount_category_id,
+          :image_crop_x, :image_crop_y, :image_crop_w, :image_crop_h,
+          :big_image_crop_x, :big_image_crop_y, :big_image_crop_w, :big_image_crop_h,
+          :logo_crop_x, :logo_crop_y, :logo_crop_w, :logo_crop_h,
+      )
     end
 end
