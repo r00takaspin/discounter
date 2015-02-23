@@ -73,4 +73,6 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.asset_host = 'http://ec2-54-154-237-77.eu-west-1.compute.amazonaws.com'
 end
