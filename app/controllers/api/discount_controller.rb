@@ -21,8 +21,8 @@ class Api::DiscountController < ActionController::Base
             old_price: x.old_price,
             new_price: x.new_price,
             text: x.text,
-            next: @discounts[idx+1].nil? ? @discounts.first.id : @discounts[idx+1].id,
-            prev: @discounts[idx-1].nil? ? @discounts.last.id : @discounts[idx-1].id,
+            next: @discounts[idx+1].nil? ? @discounts.first.id.to_s : @discounts[idx+1].id.to_s,
+            prev: @discounts[idx-1].nil? ? @discounts.last.id.to_s : @discounts[idx-1].id.to_s,
             discountCategory: x.discount_category_id.to_s
         }
       }
