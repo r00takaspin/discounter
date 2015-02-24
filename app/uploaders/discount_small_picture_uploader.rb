@@ -4,8 +4,6 @@ class DiscountSmallPictureUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
-  process crop: [:image, 312, 160]
-
   version :thumb do
     process :resize_to_limit => [312,160]
   end
