@@ -16,13 +16,14 @@ gem 'bson_ext'
 gem 'active_model_serializers'
 gem 'uglifier'
 gem 'devise'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'mina'
-  gem 'mina-unicorn',:require => false
+  gem 'mina-unicorn',:require => false,:path=>'~/Work/etc/mina-unicorn'
 end
 
 group :production do

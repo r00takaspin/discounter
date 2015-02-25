@@ -16,6 +16,8 @@ Bundler.require(*Rails.groups)
 
 module Discounter
   class Application < Rails::Application
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
