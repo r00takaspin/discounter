@@ -76,7 +76,7 @@
     <div class="col-sm-3">
       <%= f.select :color,nil,{}, :class => "form-control"  do %>
         <%[['желтый','bg-yellow'],['красноватый','bg-lightred','#f3a652'],['зеленоватый','bg-lightgreen'],['зеленый','bg-green'],['красный','bg-red'],['темный','bg-darkred'],['черный','bg-black']].each do |option| -%>
-              <%= content_tag(:option, option.second,class:option.second ) do %>
+              <%= content_tag(:option, option.second,value:option.second ) do %>
                 <%="#{option.first}"%>
               <%end%>
         <%end%>

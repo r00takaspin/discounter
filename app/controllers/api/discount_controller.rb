@@ -42,6 +42,7 @@ class Api::DiscountController < ActionController::Base
             color: x.color,
             old_price: x.old_price,
             new_price: x.new_price,
+            color: x.color,
             text: x.text,
             next: @discounts[idx+1].nil? ? @discounts.first.id.to_s : @discounts[idx+1].id.to_s,
             prev: @discounts[idx-1].nil? ? @discounts.last.id.to_s : @discounts[idx-1].id.to_s,
