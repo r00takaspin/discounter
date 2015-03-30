@@ -76,7 +76,7 @@ Rails.application.configure do
 
   config.asset_host = 'http://ec2-54-154-237-77.eu-west-1.compute.amazonaws.com'
 
-  congig.log_path = 'log/production.log'
+  config.log_path = 'log/production.log'
 
   config.logger = Logger.new(config.log_path, 10, 100.megabyte)
 
