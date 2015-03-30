@@ -29,26 +29,29 @@ class Api::DiscountController < ActionController::Base
 
       render json: result, :root => "discounts"
     else
-      @discounts = Discount.all
+      result = Rails.cache.fetch("disocunt_list", expires_in: 1.minute) do
+        @discounts = Discount.all
 
-      @discounts.each_with_index { |x, idx|
-        result << {
-            id: x.id.to_s,
-            title: x.name,
-            image: x.image_url(:thumb),
-            logo: x.logo_url(:thumb),
-            big_image: x.big_image_url,
-            discount: x.discount,
-            color: x.color,
-            old_price: x.old_price,
-            new_price: x.new_price,
-            color: x.color,
-            text: x.text,
-            next: @discounts[idx+1].nil? ? @discounts.first.id.to_s : @discounts[idx+1].id.to_s,
-            prev: @discounts[idx-1].nil? ? @discounts.last.id.to_s : @discounts[idx-1].id.to_s,
-            discountCategory: x.discount_category_id.to_s
+        @discounts.each_with_index { |x, idx|
+          result << {
+              id: x.id.to_s,
+              title: x.name,
+              image: x.image_url(:thumb),
+              logo: x.logo_url(:thumb),
+              big_image: x.big_image_url,
+              discount: x.discount,
+              color: x.color,
+              old_price: x.old_price,
+              new_price: x.new_price,
+              color: x.color,
+              text: x.text,
+              next: @discounts[idx+1].nil? ? @discounts.first.id.to_s : @discounts[idx+1].id.to_s,
+              prev: @discounts[idx-1].nil? ? @discounts.last.id.to_s : @discounts[idx-1].id.to_s,
+              discountCategory: x.discount_category_id.to_s
+          }
         }
-      }
+        result
+      end
 
       render json: result, :root => "discounts"
     end
