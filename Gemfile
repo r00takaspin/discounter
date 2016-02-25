@@ -23,7 +23,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'mina'
-  gem 'mina-unicorn',:require => false,:path=>'~/Work/etc/mina-unicorn'
+  gem 'mina-unicorn'
 end
 
 group :production do
